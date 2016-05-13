@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Wayne Enterprises Insurance</title>
+	<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"	type="text/javascript"></script>
+	<script src="js/controller.js" type="text/javascript"></script>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="css/style.css" />
+	
+</head>
+
+<body ng-app="wayne-ent-ui">
+	
+	<div class="header_container">
+		<h1>Wayne Enterprises <small>insurance</small></h1>
+	</div>
+  		
+	<div ng-controller="UserLogin" class="container">
+	
+	<br/><br/>
+	<br/><br/>
+	
+	<div class="row">
+	
+      	  <div class="col-md-6" style="text-align:right; paddomg-right: 30px;">
+      	  
+				<br/><br/>
+      	  		<span style="color:#666666; fomr-family:Roboto-Thin; font-size: 28px; font-weight: 100">Ask your customers to be part of the solution, and don't view them as part of the problem</span><br/>
+      	  		<span style="color:#333333; fomr-family:Arial; font-size: 13px; font-weight: 400">- Alan Weiss</span>
+      	  		
+      	  </div>
+      
+	      <div class="col-md-4" width="40%">
+	
+		      <form class="form-signin" action="customers.html">
+		        
+		        <p style="color: rgb(6,51,92);">USER NAME</p>
+		        <input type="text" id="inputUsername" class="form-control" required autofocus>
+		        <br/>
+		        
+		        <p style="color: rgb(6,51,92);">PASSWORD</p>
+		        <input type="password" id="inputPassword" class="form-control" required>
+		        
+		        <br/>
+		        <button class="btn btn-lg btn-primary btn-block" ng-click="login()">Sign in</button>
+		        
+		      </form>
+	
+		 </div>
+		
+    </div>
+
+    </div> 
+    
+    <footer>
+		<h3><small>POWERED BY</small> Awesome Tech</h3>
+	</footer>
+
+</body>
+</html>

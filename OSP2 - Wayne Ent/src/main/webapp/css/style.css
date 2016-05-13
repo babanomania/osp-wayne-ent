@@ -1,0 +1,65 @@
+div.header_container {
+    background-color: rgb(6, 51, 92); color: white; vertical-align: top;
+}
+
+div.header_container h1 {
+	margin-top: 0px; 
+	padding-bottom: 20px;
+ 	padding-top: 20px;
+ 	margin-bottom: 0px;
+ 	padding-left: 10px;
+}
+
+div.header_container h1 small {
+	color: white;
+}
+
+footer {
+	background-color: rgb(164, 186, 198); 
+	position: absolute; 
+	bottom: 0; 
+	width: 100%; 
+	text-align: left;
+}
+
+footer h3 {
+	color: white;
+}
+
+footer h3 small {
+	color: white; 
+	font-size: 12px;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+
+.well{
+	background: white;
+}
+
+.well p.label_big{
+	color: #666666; 
+	font-size: 28px; 
+	font-weight: 100
+}
+
+.well p {
+	color: #666666; 
+	font-size: 13px; 
+	padding-bottom: 0px;
+}
+
+.well input.form-control {
+	width: 20%;
+}
+
+td p.label {
+	color: rgb(0,158,199);
+}
+
+body{
+	background-color: rgb(233,240,244);
+}
+
+
+

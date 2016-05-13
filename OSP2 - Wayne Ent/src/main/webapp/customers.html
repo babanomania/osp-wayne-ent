@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<title>Wayne Enterprises Insurance</title>
+	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"
+		type="text/javascript"></script>
+		
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular-resource.js"
+		type="text/javascript"></script>
+		
+	<script src="js/controller.js" type="text/javascript"></script>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+		crossorigin="anonymous">
+		
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+		integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" 
+		crossorigin="anonymous">
+		
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+		crossorigin="anonymous"></script>
+	
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	
+	<link rel="stylesheet" href="css/simple-sidebar.css" />
+	
+	<link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body ng-app="wayne-ent-ui">
+
+	<div class="header_container">
+		<h1>Wayne Enterprises <small>insurance</small></h1>
+	</div>
+
+	<div ng-controller="GetCustomerData" class="container">
+
+		<div id="wrapper">
+
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+
+					<li  class="current"><a href="customers.html">Customers</a></li>
+
+					<li><a href="policies.html">Policy</a></li>
+
+					<li><a href="index.html">Logout</a></li>
+
+				</ul>
+			</div>
+			<!-- /#sidebar-wrapper -->
+
+					<br/><br/>
+					
+					<div class="well" ng-hide="showData">
+
+						<p class="label_big">SEARCH</p>
+						<b>BY CUSTOMER</b>
+						<br/><br/>
+
+						<p>First Name</p>
+						<input type="text" class="form-control" ng-model="firstName">
+						<br/>
+
+						<p>Last Name</p>
+						<input type="text" class="form-control" ng-model="lastName"> 
+						<br/>
+
+						<button type="button" class="btn btn-info" ng-click="getData()">
+							&nbsp; Search &nbsp;
+						</button>
+						
+						<button type="button" class="btn btn-info" ng-click="resetData()">
+							&nbsp; Reset &nbsp;
+						</button>
+
+					</div>
+							
+							<br/>
+							
+							<table class="table table-bordered table-striped" ng-show="showData"  style="background-color:white;" >
+
+								<tr>
+									<td><p class="label">First Name</p></td>
+									<td ng-hide="editorEnabled">{{customerdata.firstName}}</td>
+									<td ng-show="editorEnabled"><input
+										ng-model="customerdata.firstName" ng-show="editorEnabled">
+									</td>
+								</tr>
+
+								<tr>
+									<td><p class="label">Last Name</p></td>
+									<td ng-hide="editorEnabled">{{customerdata.lastName}}</td>
+									<td ng-show="editorEnabled"><input
+										ng-model="customerdata.lastName" ng-show="editorEnabled">
+									</td>
+								</tr>
+
+								<tr>
+									<td><p class="label">Date Of Birth</p></td>
+									<td ng-hide="editorEnabled">{{customerdata.dateOfBirth}}</td>
+									<td ng-show="editorEnabled"><input
+										ng-model="customerdata.dateOfBirth" ng-show="editorEnabled">
+									</td>
+								</tr>
+
+								<tr>
+									<td><p class="label">Email</p></td>
+									<td ng-hide="editorEnabled">{{customerdata.email}}</td>
+									<td ng-show="editorEnabled"><input
+										ng-model="customerdata.email" ng-show="editorEnabled">
+									</td>
+								</tr>
+
+								<tr>
+									<td><p class="label">Statement In Email</p></td>
+									<td ng-hide="editorEnabled">{{customerdata.statementInEmail}}</td>
+									<td ng-show="editorEnabled"><input
+										ng-model="customerdata.statementInEmail"
+										ng-show="editorEnabled"></td>
+								</tr>
+
+							</table>
+
+							<button type="button" class="btn btn-info" ng-show="showEdit" ng-click="enableEditor()">
+								&nbsp; Edit &nbsp;
+							</button>
+							
+							<button type="button" class="btn btn-info" ng-show="editorEnabled"  ng-click="save()">
+								&nbsp; Save &nbsp;
+							</button>						
+				</div>
+
+	</div>
+	<!-- /#wrapper -->
+
+	<footer>
+		<h3><small>POWERED BY</small> Awesome Tech</h3>
+	</footer>
+
+</body>
+</html>
