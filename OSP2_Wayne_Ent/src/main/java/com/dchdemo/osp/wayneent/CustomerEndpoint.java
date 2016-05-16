@@ -47,14 +47,14 @@ public class CustomerEndpoint extends BaseEndpoint {
     public void editCustomerDetails( Customer editedCustomer ) throws Exception{
     	
     	CustomersUtil.saveCustomerDetail(editedCustomer);
-    	saveToCrm( editedCustomer );
+    	syncCustomerUpdate( editedCustomer );
     }
     
-    private void saveToCrm( Customer editedCustomer ) throws Exception {
+    private void syncCustomerUpdate( Customer editedCustomer ) throws Exception {
     	
     	ObjectMapper mapper = new ObjectMapper();
     	String jsonCustomer = mapper.writeValueAsString(editedCustomer);
-    	String uri = "/crm/customer";
+    	String uri = "/sync/customer";
     	
     	CloseableHttpClient httpclient = HttpClients.createDefault();
     	HttpPut httpput = new HttpPut( url_isb + uri );

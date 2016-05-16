@@ -32,7 +32,17 @@ app.controller("GetCustomerData", function($scope, $http, $resource) {
         };
 
         $scope.save = function() {
-            CustomerEntity.save($scope.customerdata);
+            CustomerEntity.save($scope.customerdata,
+    				  function(resp, headers){
+		                //success callback
+		                console.log(resp);
+		              },
+		              function(err){
+		                alert( "error occured while saving " );
+		                console.log(err);
+		              }
+		    	);
+            
             $scope.editorEnabled = false;
             $scope.showEdit = true;
 
@@ -65,7 +75,17 @@ app.controller("GetPolicyData", function($scope, $http, $resource) {
         };
 
         $scope.save = function() {
-        	PolicyEntity.save($scope.policydata);
+        	PolicyEntity.save($scope.policydata,
+    				  function(resp, headers){
+		                //success callback
+		                console.log(resp);
+		              },
+		              function(err){
+		                alert( "error occured while saving " );
+		                console.log(err);
+		              }
+		    	);
+        	
             $scope.editorEnabled = false;
             $scope.showEdit = true;
 
