@@ -1,0 +1,220 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Wayne Enterprises API",
+        "description": "dummy osp API",
+        "version": "1.0.0"
+    },
+    "host": "wayne-ent-osp.herokuapp.com",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/api",
+    "produces": [
+        "application/json",
+        "application/xml"
+    ],
+    "paths": {
+        "/customer/{lastname}/{firstname}": {
+            "get": {
+                "summary": "Get Customer Details",
+                "description": "Endpoint for quering all customer details.\n",
+                "produces": [
+                    "application/json",
+       				"application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "lastname",
+                        "in": "path",
+                        "description": "last name of the customer.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "firstname",
+                        "in": "path",
+                        "description": "first name of the customer.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Customer"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "valid customer data available in the server",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Customer"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "valid customer data not available in the server"
+                    }
+                }
+            }
+        },
+        "/customer": {
+            "post": {
+                "summary": "Save Customer Details",
+                "description": "Endpoint for saving all customer details.\n",
+                "produces": [
+                    "application/json",
+       				"application/xml"
+                ],
+                "consumes": [
+                    "application/json",
+        			"application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "customer data to save",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Customer"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Customer"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "customer data is saved in the server and crm"
+                    },
+                    "500": {
+                        "description": "error has occured while saving customer data"
+                    }
+                }
+            }
+        },
+        "/policy/{polNum}": {
+            "get": {
+                "summary": "Get Policy Details",
+                "description": "Endpoint for quering all policy details.\n",
+                "produces": [
+                    "application/json",
+        			"application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "polNum",
+                        "in": "path",
+                        "description": "policy number for the policy.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Policy"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "valid policy data available in the server",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Policy"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "valid policy data not available in the server"
+                    }
+                }
+            }
+        },
+        "/policy": {
+            "post": {
+                "summary": "Save Policy Details",
+                "description": "Endpoint for saving all policy details.\n",
+                "produces": [
+                    "application/json",
+       				"application/xml"
+                ],
+                "consumes": [
+                    "application/json",
+        			"application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "policy data to save",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Policy"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Policy"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "policy data is saved in the server and crm"
+                    },
+                    "500": {
+                        "description": "error has occured while saving policy data"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Customer": {
+            "type": "object",
+            "properties": {
+                "firstname": {
+                    "type": "string",
+                    "description": "first name of the customer"
+                },
+                "lastname": {
+                    "type": "string",
+                    "description": "last name of the customer"
+                },
+                "dateOfBirth": {
+                    "type": "string",
+                    "description": "dob of the customer in dd/mm/yyyy"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "email of the customer, public email like gmail"
+                },
+                "statementInEmail": {
+                    "type": "string",
+                    "description": "whether customer wants the statement in email or paper, valid values are Yes/No"
+                },
+                "crmid": {
+                    "type": "string",
+                    "description": "account id of the customer linked to Microsoft Dynamics entity"
+                }
+            }
+        },
+        "Policy": {
+            "type": "object",
+            "properties": {
+                "policyNumber": {
+                    "type": "string",
+                    "description": "value of the policy number"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "current role in the policy"
+                },
+                "lastPremiumPaid": {
+                    "type": "string",
+                    "description": "date when the last premium was paid for the policy"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "current status of the policy"
+                }
+            }
+        }
+    }
+}

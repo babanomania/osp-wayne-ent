@@ -7,7 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
 @Path("static")
-public class StaticContentHandler {
+public class StaticContentEndpoint {
   
     @GET
     @Path("{path:.*}")
