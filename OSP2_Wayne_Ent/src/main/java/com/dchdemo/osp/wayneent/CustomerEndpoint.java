@@ -54,7 +54,7 @@ public class CustomerEndpoint extends BaseEndpoint {
     	
     	ObjectMapper mapper = new ObjectMapper();
     	String jsonCustomer = mapper.writeValueAsString(editedCustomer);
-    	String uri = "/sync/customer";
+    	String uri = "/api/customer";
     	
     	CloseableHttpClient httpclient = HttpClients.createDefault();
     	HttpPut httpput = new HttpPut( url_isb + uri );
