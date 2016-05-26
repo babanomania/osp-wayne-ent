@@ -2,6 +2,7 @@ package com.dchdemo.osp.wayneent;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -13,13 +14,18 @@ import com.dchdemo.osp.wayneent.dbutil.PolicyUtil;
 
 @Path("api/policy")
 public class PolicyEndpoint extends BaseEndpoint {
-
 	   
     @GET
     @Path("{polNum}")
     @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
     public Policy getPolicyDetails(	@PathParam("polNum") String polNum	){
-    	return PolicyUtil.getPolicyDetail(polNum);
+    	
+    	Policy data = PolicyUtil.getPolicyDetail(polNum);
+    	if( data == null ){
+    		throw new NotFoundException("no such policy");
+    	}
+    	
+    	return data;
     }
     
     @POST
