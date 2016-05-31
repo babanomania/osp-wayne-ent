@@ -53,12 +53,19 @@ app.controller("GetCustomerData", function($scope, $http, $resource) {
 				  function(resp, headers){
 	                //success callback
 	                console.log(resp);
+	                
+	                $scope.showEdit = true;
+	                $scope.showData = true;
+	            	$scope.showError = false;
+	                $scope.editorEnabled = false;
+	                
 	              },
 	              function(err){
 	            	  
 	            	$scope.showEdit = false;
 	              	$scope.showData = false;
 	              	$scope.showError = true;
+	              	$scope.editorEnabled = false;
 	              	
 	              	$scope.errorMessage = "error occured while saving ";
 	                console.log(err);
@@ -122,11 +129,18 @@ app.controller("GetPolicyData", function($scope, $http, $resource) {
   				  function(resp, headers){
 	                //success callback
 	                console.log(resp);
+	                
+	                $scope.showEdit = true;
+	                $scope.showData = true;
+	            	$scope.showError = false;
+	                $scope.editorEnabled = false;
+	                
 	              },
 	              function(err){
 	            	$scope.showEdit = false;
 					$scope.showData = false;
 					$scope.showError = true;
+					$scope.editorEnabled = false;
 					
 					$scope.errorMessage = "error occured while saving ";
 	                console.log(err);
