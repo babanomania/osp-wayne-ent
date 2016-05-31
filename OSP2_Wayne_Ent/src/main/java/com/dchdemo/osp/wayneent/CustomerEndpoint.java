@@ -42,6 +42,19 @@ public class CustomerEndpoint extends BaseEndpoint {
     	return data;
     }
     
+    @GET
+    @Path("{cmsId}")
+    @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+    public Customer getCustomerDetails(	@PathParam("cmsId") String cmsId ){
+    	
+    	Customer data = CustomersUtil.getCustomerDetail(cmsId);
+    	if( data == null ){
+    		throw new NotFoundException("no such customer");
+    	}
+    	
+    	return data;
+    }
+    
     @POST
     @Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
     public void editCustomerDetails( Customer editedCustomer ) throws Exception{

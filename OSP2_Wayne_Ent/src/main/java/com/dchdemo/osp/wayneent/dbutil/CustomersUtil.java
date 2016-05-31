@@ -14,6 +14,7 @@ public class CustomersUtil {
 
 	//http://localhost:8080/api/customer/Dent/Arthur
 	public static Map<String, Customer> customers = new HashMap<String, Customer>();
+	public static Map<String, Customer> customersCMS = new HashMap<String, Customer>();
 
 	private static void loadData() throws Exception {
 		
@@ -31,6 +32,7 @@ public class CustomersUtil {
 		    String email = record.get("email");
 		    String statementEmail = record.get("Statement In Email");
 		    String crmId = record.get("CRM ID");
+		    String cmsId = record.get("CMS ID");
 		    
 		    Customer cust = new Customer();
 		    cust.setFirstName(firstName);
@@ -39,8 +41,10 @@ public class CustomersUtil {
 		    cust.setEmail(email);
 		    cust.setStatementInEmail(statementEmail);
 		    cust.setCrmid(crmId);
+		    cust.setCmsid(cmsId);
 		    
 		    customers.put( firstName+lastName,  cust );
+		    customersCMS.put( cmsId,  cust );
 		}
 		
 	}
@@ -58,8 +62,13 @@ public class CustomersUtil {
 		return customers.get(firstName+lastName);
 	}
 	
+	public static Customer getCustomerDetail( String cmsId ) {
+		return customersCMS.get(cmsId);
+	}
+	
 	public static void saveCustomerDetail( Customer editerCustomer ) {
 		customers.put( editerCustomer.getFirstName()+editerCustomer.getLastName(),  editerCustomer );
+		customersCMS.put( editerCustomer.getCmsid(),  editerCustomer );
 	}
 	
 }
