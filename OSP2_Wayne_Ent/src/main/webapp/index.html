@@ -14,6 +14,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="css/style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 </head>
 
@@ -22,45 +23,46 @@
 	<div class="header_container">
 		<h1>Wayne Enterprises <small>insurance</small></h1>
 	</div>
-  		
+  	
+	<br/><br/>
+	<br/><br/>
+	
 	<div ng-controller="UserLogin" class="container">
 	
-	<br/><br/>
-	<br/><br/>
-	
-	<div class="row">
-	
-      	  <div class="col-md-6" style="text-align:right; paddomg-right: 30px;">
-      	  
-				<br/><br/>
-      	  		<span style="color:#666666; fomr-family:Roboto-Thin; font-size: 28px; font-weight: 100">Ask your customers to be part of the solution, and don't view them as part of the problem</span><br/>
-      	  		<span style="color:#333333; fomr-family:Arial; font-size: 13px; font-weight: 400">- Alan Weiss</span>
-      	  		
-      	  </div>
-      
-	      <div class="col-md-4" width="40%">
-	
-		      <form class="form-signin" action="customers.html">
-		        
-		        <p style="color: rgb(6,51,92);">USER NAME</p>
-		        <input type="text" id="inputUsername" class="form-control" required autofocus>
-		        <br/>
-		        
-		        <p style="color: rgb(6,51,92);">PASSWORD</p>
-		        <input type="password" id="inputPassword" class="form-control" required>
-		        
-		        <br/>
-		        <button class="btn btn-lg btn-primary btn-block" ng-click="login()">Sign in</button>
-		        
-		      </form>
-	
-		 </div>
+		<div class="row">
 		
-    </div>
+	      	  <div class="col-md-6 quote_div">
+	      	  
+					<br/><br/>
+	      	  		<span class="quote_txt">Ask your customers to be part of the solution, and don't view them as part of the problem</span><br/>
+	      	  		<span class="quote_author">- Alan Weiss</span>
+	      	  		
+	      	  </div>
+	      
+		      <div class="col-md-4">
+		
+			      <form class="form-signin" action="customers.html">
+			        
+			        <p class="dark_label">USER NAME</p>
+			        <input type="text" id="inputUsername" class="form-control" required autofocus /><br/>
+			        
+			        <p class="dark_label">PASSWORD</p>
+			        <input type="password" id="inputPassword" class="form-control" required /><br/>
+			        
+			        <button class="btn btn-lg btn-primary btn-block" ng-click="login()">Sign in</button>
+			        
+			      </form>
+		
+			 </div>
+			
+	    </div>
 
     </div> 
     
-    <footer>
+    <br/><br/>
+	<br/><br/>
+    
+	<footer>
 		<h3><small>POWERED BY</small> Awesome Tech</h3>
 	</footer>
 

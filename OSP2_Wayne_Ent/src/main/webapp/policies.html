@@ -44,7 +44,7 @@
 		<h1>Wayne Enterprises <small>insurance</small></h1>
 	</div>
 
-	<div ng-controller="GetPolicyData" class="container">
+	<div ng-controller="GetPolicyData" class="container-fluid">
 
 		<div id="wrapper">
 
@@ -64,35 +64,47 @@
 			</div>
 			<!-- /#sidebar-wrapper -->
 
-					<br/><br/>
+			<br/><br/>
 					
+			<div class="row">
+			
+				<div class="col-md-1">&nbsp;</div>
+					
+				<div class="col-md-10">
+				
 					<div class="well" ng-hide="showData">
-
+	
 						<p class="label_big">SEARCH</p>
-						<b>BY POLICY</b>
+						<b>BY POLICY</b> / <a href="customers.html">BY CUSTOMER</a>
 						<br/><br/>
-
-						<p>Policy Number</p>
-						<input type="text" class="form-control" ng-model="policyNum">
-						<br/>
-
-						<button type="button" class="btn btn-info" ng-click="getData()">
-							&nbsp; Search &nbsp;
-						</button>
 						
-						<button type="button" class="btn btn-info" ng-click="resetData()">
-							&nbsp; Reset &nbsp;
-						</button>
-
+						<div class="row">
+							<div class="col-md-4">	
+	
+								<p>Policy Number</p>
+								<input type="text" class="form-control" ng-model="policyNum">
+								<br/>
+			
+								<button type="button" class="btn btn-info" ng-click="getData()">
+									&nbsp; Search &nbsp;
+								</button>
+								
+								<button type="button" class="btn btn-info" ng-click="resetData()">
+									&nbsp; Reset &nbsp;
+								</button>
+						
+							</div>
+						</div>
+	
 					</div>
 					
 					<br/>
 					<div class="alert alert-danger" ng-show="showError">
 						{{errorMessage}}
 					</div>
-					
+						
 					<table class="table table-bordered table-striped" ng-show="showData" style="background-color:white;" >
-
+	
 						<tr>
 							<td><p class="label">Policy Number</p></td>
 							<td ng-hide="editorEnabled">{{policydata.policyNumber}}</td>
@@ -124,20 +136,25 @@
 								<input ng-model="policydata.status" ng-show="editorEnabled">
 							</td>
 						</tr>
-
+	
 					</table>
-
+	
 					<button type="button" class="btn btn-info" ng-show="showEdit" ng-click="enableEditor()">
 						&nbsp; Edit &nbsp;
 					</button>
 					
 					<button type="button" class="btn btn-info" ng-show="editorEnabled"  ng-click="save()">
 						&nbsp; Save &nbsp;
-					</button>						
+					</button>	
+				
 				</div>
-
-	</div>
-	<!-- /#wrapper -->
+				
+		  </div><!-- /#row -->				
+	
+		</div>
+		<!-- /#wrapper -->
+	
+	</div><!-- /#container -->
 
 	<footer>
 		<h3><small>POWERED BY</small> Awesome Tech</h3>

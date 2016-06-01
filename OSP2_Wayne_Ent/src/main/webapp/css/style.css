@@ -1,5 +1,7 @@
 div.header_container {
-    background-color: rgb(6, 51, 92); color: white; vertical-align: top;
+    background-color: rgb(6, 51, 92); 
+    color: white; 
+    vertical-align: top;
 }
 
 div.header_container h1 {
@@ -12,25 +14,6 @@ div.header_container h1 {
 
 div.header_container h1 small {
 	color: white;
-}
-
-footer {
-	background-color: rgb(164, 186, 198); 
-	position: absolute; 
-	bottom: 0; 
-	width: 100%; 
-	text-align: left;
-}
-
-footer h3 {
-	color: white;
-}
-
-footer h3 small {
-	color: white; 
-	font-size: 12px;
-	padding-left: 20px;
-	padding-right: 10px;
 }
 
 .well{
@@ -49,17 +32,60 @@ footer h3 small {
 	padding-bottom: 0px;
 }
 
-.well input.form-control {
-	width: 20%;
-}
-
 td p.label {
 	color: rgb(0,158,199);
 }
 
+/*	 Footer		*/
+
+html,body {
+    height:100%;
+    width: 100%;
+}
+
 body{
 	background-color: rgb(233,240,244);
+	display: table;
+}
+
+footer {
+	background-color: rgb(164, 186, 198);
+	text-align: left;
+	display: table-row;
+    height: 1px;
+}
+
+footer h3 {
+	color: white;
+}
+
+footer small {
+	color: white; 
+	font-size: 12px;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+
+/*	 Quotes		*/
+
+.quote_txt{
+	color: #666666;
+	font-size: 28px; 
+	font-weight: 100
+}
+
+.quote_author{
+	color: #333333;  
+	font-size: 13px; 
+	font-weight: 400
+}
+
+.quote_div{
+	text-align:right; 
+	padding-right: 30px;
 }
 
 
-
+.dark_label{
+	color: rgb(6,51,92);
+}

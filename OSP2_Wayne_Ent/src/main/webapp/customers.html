@@ -43,112 +43,129 @@
 		<h1>Wayne Enterprises <small>insurance</small></h1>
 	</div>
 
-	<div ng-controller="GetCustomerData" class="container">
-
+	<div ng-controller="GetCustomerData" class="container-fluid">
+		
 		<div id="wrapper">
 
 			<!-- Sidebar -->
 			<div id="sidebar-wrapper">
 				<ul class="sidebar-nav">
 
-					<li  class="current"><a href="customers.html">Customers</a></li>
-
+					<li class="current"><a href="customers.html">Customers</a></li>
 					<li><a href="policies.html">Policy</a></li>
-
 					<li><a href="/static/api-docs/index.html" target="_blank">API</a></li>
-
 					<li><a href="index.html">Logout</a></li>
 
 				</ul>
 			</div>
 			<!-- /#sidebar-wrapper -->
 
-					<br/><br/>
-					
+			<br/><br/>
+
+			<div class="row">
+				
+				<div class="col-md-1">&nbsp;</div>
+			
+				<div class="col-md-10">	
+			
 					<div class="well" ng-hide="showData">
-
+		
 						<p class="label_big">SEARCH</p>
-						<b>BY CUSTOMER</b>
+						<a href="policies.html">BY POLICY</a> / <b>BY CUSTOMER</b>
 						<br/><br/>
-
-						<p>First Name</p>
-						<input type="text" class="form-control" ng-model="firstName">
-						<br/>
-
-						<p>Last Name</p>
-						<input type="text" class="form-control" ng-model="lastName"> 
-						<br/>
-
-						<button type="button" class="btn btn-info" ng-click="getData()">
-							&nbsp; Search &nbsp;
-						</button>
+		
+						<div class="row">
+							<div class="col-md-4">	
 						
-						<button type="button" class="btn btn-info" ng-click="resetData()">
-							&nbsp; Reset &nbsp;
-						</button>
-
+								<p>First Name</p>
+								<input class="form-control" ng-model="firstName" type="text" />
+								<br/>
+				
+								<p>Last Name</p>
+								<input type="text" class="form-control" ng-model="lastName"/> 
+								<br/>
+				
+								<button type="button" class="btn btn-info" ng-click="getData()">
+									&nbsp; Search &nbsp;
+								</button>
+								
+								<button type="button" class="btn btn-info" ng-click="resetData()">
+									&nbsp; Reset &nbsp;
+								</button>
+							
+							</div>
+						</div>
+						
+						
 					</div>
-							
-							<br/>
-							<div class="alert alert-danger" ng-show="showError">
-								{{errorMessage}}
-							</div>							
-									
-							<table class="table table-bordered table-striped" ng-show="showData"  style="background-color:white;" >
+					
+					<br/>
+					<div class="alert alert-danger" ng-show="showError">
+						{{errorMessage}}
+					</div>							
+										
+					<table class="table table-bordered table-striped" ng-show="showData"  style="background-color:white;" >
+		
+						<tr>
+							<td><p class="label">First Name</p></td>
+							<td ng-hide="editorEnabled">{{customerdata.firstName}}</td>
+							<td ng-show="editorEnabled"><input
+								ng-model="customerdata.firstName" ng-show="editorEnabled">
+							</td>
+						</tr>
+		
+						<tr>
+							<td><p class="label">Last Name</p></td>
+							<td ng-hide="editorEnabled">{{customerdata.lastName}}</td>
+							<td ng-show="editorEnabled"><input
+								ng-model="customerdata.lastName" ng-show="editorEnabled">
+							</td>
+						</tr>
+		
+						<tr>
+							<td><p class="label">Date Of Birth</p></td>
+							<td ng-hide="editorEnabled">{{customerdata.dateOfBirth}}</td>
+							<td ng-show="editorEnabled"><input
+								ng-model="customerdata.dateOfBirth" ng-show="editorEnabled">
+							</td>
+						</tr>
+		
+						<tr>
+							<td><p class="label">Email</p></td>
+							<td ng-hide="editorEnabled">{{customerdata.email}}</td>
+							<td ng-show="editorEnabled"><input
+								ng-model="customerdata.email" ng-show="editorEnabled">
+							</td>
+						</tr>
+		
+						<tr>
+							<td><p class="label">Statement In Email</p></td>
+							<td ng-hide="editorEnabled">{{customerdata.statementInEmail}}</td>
+							<td ng-show="editorEnabled"><input
+								ng-model="customerdata.statementInEmail"
+								ng-show="editorEnabled"></td>
+						</tr>
+		
+					</table>
+		
+					<button type="button" class="btn btn-info" ng-show="showEdit" ng-click="enableEditor()">
+						&nbsp; Edit &nbsp;
+					</button>
+					
+					<button type="button" class="btn btn-info" ng-show="editorEnabled"  ng-click="save()">
+						&nbsp; Save &nbsp;
+					</button>
+				
+			</div>						
 
-								<tr>
-									<td><p class="label">First Name</p></td>
-									<td ng-hide="editorEnabled">{{customerdata.firstName}}</td>
-									<td ng-show="editorEnabled"><input
-										ng-model="customerdata.firstName" ng-show="editorEnabled">
-									</td>
-								</tr>
+		</div><!-- /#row -->
+		
+	  </div><!-- /#wrapper -->
 
-								<tr>
-									<td><p class="label">Last Name</p></td>
-									<td ng-hide="editorEnabled">{{customerdata.lastName}}</td>
-									<td ng-show="editorEnabled"><input
-										ng-model="customerdata.lastName" ng-show="editorEnabled">
-									</td>
-								</tr>
-
-								<tr>
-									<td><p class="label">Date Of Birth</p></td>
-									<td ng-hide="editorEnabled">{{customerdata.dateOfBirth}}</td>
-									<td ng-show="editorEnabled"><input
-										ng-model="customerdata.dateOfBirth" ng-show="editorEnabled">
-									</td>
-								</tr>
-
-								<tr>
-									<td><p class="label">Email</p></td>
-									<td ng-hide="editorEnabled">{{customerdata.email}}</td>
-									<td ng-show="editorEnabled"><input
-										ng-model="customerdata.email" ng-show="editorEnabled">
-									</td>
-								</tr>
-
-								<tr>
-									<td><p class="label">Statement In Email</p></td>
-									<td ng-hide="editorEnabled">{{customerdata.statementInEmail}}</td>
-									<td ng-show="editorEnabled"><input
-										ng-model="customerdata.statementInEmail"
-										ng-show="editorEnabled"></td>
-								</tr>
-
-							</table>
-
-							<button type="button" class="btn btn-info" ng-show="showEdit" ng-click="enableEditor()">
-								&nbsp; Edit &nbsp;
-							</button>
-							
-							<button type="button" class="btn btn-info" ng-show="editorEnabled"  ng-click="save()">
-								&nbsp; Save &nbsp;
-							</button>						
-				</div>
-
-	</div>
-	<!-- /#wrapper -->
+	</div><!-- /#container -->
+	
+	<br/><br/>
+	<br/><br/>
 
 	<footer>
 		<h3><small>POWERED BY</small> Awesome Tech</h3>
