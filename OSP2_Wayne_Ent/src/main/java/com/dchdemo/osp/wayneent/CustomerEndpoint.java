@@ -63,6 +63,14 @@ public class CustomerEndpoint extends BaseEndpoint {
     	syncCustomerUpdate( editedCustomer );
     }
     
+    @POST
+    @Path("nosync")
+    @Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+    public void saveCustomerDetails( Customer editedCustomer ) throws Exception{
+    	
+    	CustomersUtil.saveCustomerDetail(editedCustomer);
+    }
+    
     private void syncCustomerUpdate( Customer editedCustomer ) throws Exception {
     	
     	ObjectMapper mapper = new ObjectMapper();
